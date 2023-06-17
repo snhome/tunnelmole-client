@@ -3,8 +3,8 @@ import deepmerge from 'deepmerge';
 
 const baseConfig = {
     hostip: {
-        endpoint: "service.tunnelmole.com",
-        port: "80"
+        endpoint: "192.168.1.145",
+        port: "28000"
     },
     runtime: {
         enableLogging: true

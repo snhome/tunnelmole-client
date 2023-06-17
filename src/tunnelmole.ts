@@ -10,16 +10,22 @@ import { Options } from './options.js';
 import validator from 'validator';
 import { initStorage } from './node-persist/storage.js';
 
+console.log("start!!!");
 export default async function tunnelmole(options : Options)
 {
+	options.port = 8000;
+ 	options.domain = "expose.sntongnas.fun";
+	console.log(options);
+
+   console.log("start2!!!");
     await initStorage();
     await initialiseClientId();
-
-    if (options.setApiKey) {
-       await setApiKey(options.setApiKey);
-       return;
-    }
-
+    await setApiKey("mykey");
+    // if (options.setApiKey) {
+    //    await setApiKey(options.setApiKey);
+    //   return;
+    // }
+console.log("start3!!");
     const websocket = new HostipWebSocket(config.hostip.endpoint);
     const websocketIsReady = websocket.readyState === 1;
 
@@ -96,3 +102,5 @@ export default async function tunnelmole(options : Options)
         console.error(error);
     });
 }
+
+tunnelmole({});
